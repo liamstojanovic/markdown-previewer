@@ -27,9 +27,12 @@ const Editor = () => {
             <div id="toolbar"> {/* Should this be its own component? */}
                 Toolbar
             </div>
-            <textarea id="editor" autoFocus={true} placeholder={defaultMd} onChange={(e) => handleTextAreaChange(e)}>
-            
-            </textarea>
+            <textarea 
+                id="editor" 
+                autoFocus={true} 
+                placeholder={defaultMd} 
+                onChange={(e) => handleTextAreaChange(e)}
+            />
 
             <Preview raw={textinput.raw}/>
         </div>
