@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Preview from './Preview';
 
 export type PreviewState = {
     raw: string
@@ -11,13 +12,15 @@ const Editor = () => {
     })
 
     return (
-        <div id="editor-wrapper">
+        <div id="editor-preview">
             <div id="toolbar">
                 Toolbar
             </div>
             <textarea id="editor">
             
             </textarea>
+
+            <Preview raw="My static string."/>
         </div>
         
     )
