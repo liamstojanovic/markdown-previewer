@@ -5,22 +5,33 @@ export type PreviewState = {
     raw: string
 }
 
+const defaultMd: string = `# My heading
+## My subheading
+### My sub-subheading
+`
+
 const Editor = () => {
 
     const [textinput, setTextInput] = useState({
-        raw: "Hello world!"
-    })
+        raw: defaultMd 
+    });
+
+    const handleTextAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setTextInput({
+            raw: event.target.value
+        });
+    }
 
     return (
         <div id="editor-preview">
-            <div id="toolbar">
+            <div id="toolbar"> {/* Should this be its own component? */}
                 Toolbar
             </div>
-            <textarea id="editor">
+            <textarea id="editor" autoFocus={true} placeholder={defaultMd} onChange={(e) => handleTextAreaChange(e)}>
             
             </textarea>
 
-            <Preview raw="My static string."/>
+            <Preview raw={textinput.raw}/>
         </div>
         
     )
