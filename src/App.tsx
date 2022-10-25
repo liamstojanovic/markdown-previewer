@@ -1,9 +1,10 @@
 import React from 'react';
+import Editor from './components/Editor';
 
-function App() {
+const App = () => {
   return (
     <div className="wrapper">
-      Hello world!
+      <Editor />
     </div>
   );
 }
