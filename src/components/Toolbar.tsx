@@ -15,7 +15,7 @@ export type ToolbarButton = {
 
 const Toolbar = ({name, icon, insert}: ToolbarButton) => {
     // https://kubyshkin.name/posts/insert-text-into-textarea-at-cursor-position/
-    const insertEditor = (insertedText: string) => {
+    const insertEditor = (event: React.MouseEvent<HTMLButtonElement>, insertedText: string) => {
         // Get the editor element, which will always be of type HTMLTextrAreaElement
         const editor = document.getElementById("editor") as HTMLTextAreaElement;
         // Check for existing text
@@ -29,13 +29,13 @@ const Toolbar = ({name, icon, insert}: ToolbarButton) => {
     }
     
     return (
-        <div className="toolbar">
-            <ul className="flex">
-                <button id={name} className="inline-block border border-white rounded py-2 px-4 bg-white">
-                    {icon()}
-                </button>
-            </ul>
-        </div>
+    <li className="">
+        <button id={name} 
+        className="border border-white rounded py-2 px-4 bg-white" 
+        onClick={((e) => insertEditor(e, insert))}>
+            {icon()}
+        </button>
+    </li>
     )
 }
 
