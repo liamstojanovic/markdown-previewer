@@ -94,5 +94,14 @@ export const ToolbarConfig: ToolbarButton[] = [
             )
         },
         insert: `**I love bold text!**`
+    },
+    {
+        name: `italic`,
+        icon: () => {
+            return (
+                <i className="fa-solid fa-italic"></i>
+            )
+        },
+        insert: `Italicized text is the *cat's meow*.`
     }
 ]
