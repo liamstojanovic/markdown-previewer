@@ -42,16 +42,24 @@ const Editor = () => {
 
     return (
         <div id="editor-preview">
-            {toolbarButtons}
+            <div id="toolbar" className="">
+                <ul className="flex flex-row flex-wrap">
+                    {toolbarButtons}
+                </ul>
+
+            </div>
+
             <textarea 
                 id="editor"
-                className="text-black" 
+                className="text-black resize rounded-md" 
                 autoFocus={true} 
                 placeholder={defaultMd} 
                 onChange={(e) => handleTextAreaChange(e)}
             />
 
-            <Preview raw={textinput.raw}/>
+            <Preview 
+                raw={textinput.raw}
+            />
         </div>
         
     )
