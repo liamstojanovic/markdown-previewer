@@ -17,7 +17,7 @@ const Preview = (props:PreviewState) => {
     return (
         <div 
             id="preview" 
-            className="markdown-body text-white border border-white m-2" 
+            className="markdown-body py-2 px-2 text-white" 
             dangerouslySetInnerHTML={{ __html: sanitizedHtml }}>
         </div>
     )

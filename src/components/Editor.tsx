@@ -9,30 +9,36 @@ export type PreviewState = {
     raw: string
 }
 
-const defaultMd: string = `# My heading
-## My subheading
-### My sub-subheading
-[Link name](https://link-url)
+const defaultMd: string = `# Markdown Previewer, created by [Liam Stojanovic](https://www.freecodecamp.org/liamstojanovic)
+## This is project two of five for Freecodecamp's Front End Development Libraries.
+### You can find [my Github here](https://github.com/liamstojanovic)
+As an addition to the [user stories](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-markdown-previewer) for this project, I also added buttons that insert markdown when clicked!
 
+# About this project
+
+- I made use of [Sindre Sorhus's Github Markdown CSS repo](https://github.com/sindresorhus/github-markdown-css) to style the preview correctly.
+- I leveraged [Tailwindcss](https://tailwindcss.com/) to style my components.
+- This application was built using TypeScript and React.
+
+# Other fun markdown elements:
+### Inline code
 \`<code>\`
 
+### Code block
     <html>
         <head>
         </head>
     </html>
 
-- This is my first list item!
-- This is my second list item!
+### Blockquote
+> Hello! I am a blockquote!
 
-> This is a blockquote!
+### Image
 
-This is normal text!
+![La Catenba Appennica](https://upload.wikimedia.org/wikipedia/commons/2/2b/La_catena_Appennica.jpg)
 
-![Your image caption here](https://upload.wikimedia.org/wikipedia/commons/2/2b/La_catena_Appennica.jpg)
-
-**I love bold text!**
-
-Italicized text is the *cat's meow*.
+### Bold text
+**I am bold text!**
 `
 
 const Editor = () => {
@@ -47,8 +53,6 @@ const Editor = () => {
     }
 
     const handleButtonClick = (newTextInput: string): void => {
-        console.log('You clicked a button!');
-        console.log('Your new text is:' + newTextInput);
         // Case 1: Text area input is empty. Replace empty content with inserted string.
         if (textinput.raw === '') {
             setTextInput({
@@ -86,9 +90,9 @@ const Editor = () => {
     });
 
     return (
-        <div id="editor-preview" className="">
-            <div id="toolbar" className="border rounded border-white my-4">
-                <ul className="flex flex-row flex-wrap">
+        <div id="editor-preview" className="bg-inherit">
+            <div id="buttons" className="py-4">
+                <ul className="flex flex-row flex-wrap justify-center">
                     {markdownButtons}
                 </ul>
 
