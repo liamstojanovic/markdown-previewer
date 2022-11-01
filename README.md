@@ -1,6 +1,6 @@
 # About this app
 
-This Markdown Previewer was creaed as part of [Freecodecamp's front end development libraries project series.](https://www.freecodecamp.org/learn/front-end-development-libraries/#front-end-development-libraries-projects).
+This Markdown Previewer was creaed as part of [Freecodecamp's front end development libraries project series](https://www.freecodecamp.org/learn/front-end-development-libraries/#front-end-development-libraries-projects).
 
 In this project, I leveraged:
 - TypeScript/React,
