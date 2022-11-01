@@ -3,7 +3,7 @@ import Editor from './components/Editor';
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <div className="wrapper bg-black h-screen">
       <Editor />
     </div>
   );
