@@ -65,7 +65,7 @@ export const ButtonConfig: MarkdownButton[] = [
                 <i className="fa-solid fa-list"></i>
             )
         },
-        insert: `- My first list item\.
+        insert: `- My first list item.
         - My second list item!`
     },
     {
