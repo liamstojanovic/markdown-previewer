@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import Toolbar from './Toolbar';
+import Button from './Button';
 import Preview from './Preview';
 
-import { ToolbarConfig } from '../shared/ToolbarConfig';
+import { ButtonConfig } from '../shared/ButtonConfig';
 
 export type PreviewState = {
     raw: string
@@ -46,53 +46,53 @@ const Editor = () => {
         });
     }
 
-    // const handleButtonInsertion = (newInputString: string): void => {
-    //     // setTextInput({
-    //     //     raw: document.getElementById("editor")!.textContent!
-    //     // });
-    // }
+    const handleButtonClick = (newTextInput: string): void => {
+        console.log('You clicked a button!');
+        console.log('Your new text is:' + newTextInput);
+        // Case 1: Text area input is empty. Replace empty content with inserted string.
+        if (textinput.raw === '') {
+            setTextInput({
+                raw: newTextInput
+            });
+            // Terminate the function if there is no text present.
+            return;
+        };
+        // Case 2: Text area input is not empty. Insert based on start and end of cursor.
+        // Retrieve selection start and end points to concatenate new string
+        const editor = document.getElementById("editor") as HTMLTextAreaElement;
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        // Create new string
+        const updatedText = editor.value.slice(0, start) + newTextInput + editor.value.slice(end);
+        // Update state with new text
+        setTextInput({
+            raw: updatedText
+        })
 
-    // const toolbarButtons: JSX.Element[] = ToolbarConfig.map((button, index) => {
-    //     return (<Toolbar 
-    //                 name={button.name} 
-    //                 icon={button.icon} 
-    //                 insert={button.insert} 
-    //                 key={index}
-    //             />);
-    // });
+        editor.focus();
 
-    // const insertEditor = (insertedText: string): string => {
-    //     // Get the editor element, which will always be of type HTMLTextrAreaElement
-    //     const editor = document.getElementById("editor") as HTMLTextAreaElement;
-    //     // Check for existing text
-    //     const existingText = editor.value;
-    //     // Check for existing selection
-    //     const start = editor.selectionStart;
-    //     const end = editor.selectionEnd;
-    //     // If existingText is null, the user hasn't entered anything into the editor
-    //     // Overwrite the value with insertedText
-    //     if (!existingText) {
-    //         editor.value = insertedText;
-    //         return insertedText;
-    //     }
-    //     // Update the value of the textbox with the button insertion text
-    //     editor.value = editor.value.slice(0, start) + insertedText + editor.value.slice(end);
-    //     // Update cursor to be at the end of the insertion
-    //     editor.selectionStart = editor.selectionEnd = start + insertedText.length;
-    //     // Focus on the textarea after insertion
-    //     editor.focus();
+    }
 
-    //     return editor.value;
-    // }
+    const markdownButtons: JSX.Element[] = ButtonConfig.map((button, index) => {
+        return (
+            <Button
+                name={button.name}
+                icon={button.icon}
+                insert={button.insert}
+                key={index}
+                handleClick={handleButtonClick}
+            />
+        )
+    });
 
     return (
         <div id="editor-preview" className="">
-            {/* <div id="toolbar" className="border rounded border-white my-4">
+            <div id="toolbar" className="border rounded border-white my-4">
                 <ul className="flex flex-row flex-wrap">
-                    {toolbarButtons}
+                    {markdownButtons}
                 </ul>
 
-            </div> */}
+            </div>
 
             <textarea 
                 id="editor"
@@ -100,6 +100,7 @@ const Editor = () => {
                 autoFocus={true} 
                 placeholder={defaultMd} 
                 onChange={(e) => handleTextAreaChange(e)}
+                value={textinput.raw}
             />
 
             <div id="preview-header" className="text-white text-center">

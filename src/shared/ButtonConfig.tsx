@@ -1,6 +1,6 @@
-import { ToolbarButton } from "../components/Toolbar"
+import { MarkdownButton } from "../components/Button";
 
-export const ToolbarConfig: ToolbarButton[] = [
+export const ButtonConfig: MarkdownButton[] = [
     {
         name: `h1`,
         icon: () => {
@@ -8,7 +8,7 @@ export const ToolbarConfig: ToolbarButton[] = [
                 <i className="fa-solid fa-h1"></i>
             );
         },
-        insert: `#`
+        insert: `# H1 `
     },
     {
         name: `h2`,
@@ -17,7 +17,7 @@ export const ToolbarConfig: ToolbarButton[] = [
                 <i className="fa-solid fa-h2"></i>
             )
         },
-        insert: `##`
+        insert: `## H2`
     },
     {
         name: `h3`,
@@ -26,7 +26,7 @@ export const ToolbarConfig: ToolbarButton[] = [
                 <i className="fa-solid fa-h3"></i>
             )
         },
-        insert: `###`
+        insert: `### H3`
     },
     {
         name: `link`,
@@ -56,7 +56,7 @@ export const ToolbarConfig: ToolbarButton[] = [
         insert: `    <html>
         <head>
         </head>
-      </html>`
+    </html>`
     },
     {
         name: `list-item`,
@@ -65,8 +65,8 @@ export const ToolbarConfig: ToolbarButton[] = [
                 <i className="fa-solid fa-list"></i>
             )
         },
-        insert: `- 1968\. A great year!
-        - I think 1969 was second best.`
+        insert: `- My first list item\.
+        - My second list item!`
     },
     {
         name: `blockquote`,
